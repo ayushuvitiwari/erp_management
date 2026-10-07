@@ -1,10 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import DashboardLayout from '../Components/DashboardLayout'
 import { IoCloseSharp } from "react-icons/io5";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import Table from 'react-bootstrap/Table'
+import axios from 'axios';
+import './CSS/Teachers.css'
 
 const Teachers = () => {
   const [ModalShow, setModalShow] = useState()
+  const [Teachers, setTeachers] = useState([])
+
+  const fetchTeachers = async () => {
+    try {
+      const res = await axios.get('/Data/Teachers.json')
+      console.log(res)
+      setTeachers(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchTeachers();
+  },[])
   return (
     <>
       <DashboardLayout>
@@ -15,17 +35,56 @@ const Teachers = () => {
         </div>
 
 
+
+
+        <Table className="subject-table" cellPadding="0" cellSpacing="0" striped bordered>
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Subject Name</th>
+              <th>Mobile</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {Teachers.map((item) => (
+              <tr key={item._id}>
+                <td>{item._id}</td>
+                <td>{item.name}</td>
+                <td>{item.mobile}</td>
+                <td>
+                  <button className="subject-edit-btn"><FaEdit /></button>
+                  <button className="subject-edit-btn">< MdDelete /></button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+
+
+
+
+
+
+
+
+
+
         <Modal show={ModalShow} centered>
           <Modal.Header className='modal-header'>
-            <h1>create class</h1>
+            <h1>Add Teacher</h1>
             <button onClick={() => setModalShow(false)}><IoCloseSharp size={30} /></button>
           </Modal.Header>
           <Modal.Body>
 
-          </Modal.Body>
-          <Modal.Footer>
+            <div className="teacher-body">
+              <input type="text" placeholder='Enter name' />
+              <input type="tel" placeholder='Enter Number' />
+              <button>Add Teacher</button>
+            </div>
 
-          </Modal.Footer>
+          </Modal.Body>
         </Modal>
 
 

@@ -1,0 +1,41 @@
+.teacher-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 5px;
+}
+
+.teacher-body input {
+  width: 100%;
+  height: 45px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  font-size: 15px;
+  color: #1f2937;
+  transition: 0.2s ease;
+  box-sizing: border-box;
+}
+
+.teacher-body input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.teacher-body input::placeholder {
+  color: #9ca3af;
+}
+
+.teacher-body button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0c386e;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}

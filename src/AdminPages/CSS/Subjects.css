@@ -59,3 +59,14 @@
     background-color: #0b3d78;
     color: white;
 }
+
+.subject-edit-btn{
+    background-color: #0b3d78;
+    color: white;
+    border: none;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;    
+}

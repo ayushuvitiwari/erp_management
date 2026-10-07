@@ -5,6 +5,8 @@ import './CSS/Subjects.css'
 import { IoCloseSharp } from "react-icons/io5"
 import axios from 'axios'
 import Table from 'react-bootstrap/Table'
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const Subjects = () => {
 
@@ -51,7 +53,8 @@ const Subjects = () => {
                 <td>{item._id}</td>
                 <td>{item.name}</td>
                 <td>
-                  <button className="subject-edit-btn">Edit</button>
+                  <button className="subject-edit-btn"><FaEdit /></button>
+                  <button className="subject-edit-btn">< MdDelete/></button>
                 </td>
               </tr>
             ))}
