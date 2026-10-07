@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Ayush Tiwari",
+        "email": "ayush@gmail.com",
+        "otp": "1234",
+        "role": "supperAdmin",
+        "token": "asdfghjklqwertyui1234567@#$%^&*"
+    },
+    {
+        "id": 2,
+        "name": "Alok Tiwari",
+        "email": "alok@gmail.com",
+        "otp": "5678",
+        "role": "admin",
+        "token": "asdfghjklqwertyndgvfjyevcjsrfgsh54678dschjvsdcv6ui@#$%^&*"
+    }
+]

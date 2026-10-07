@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.all-classes-header{
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px rgba(131, 125, 126, 0.8);
+    padding: 10px 20px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+.all-create-class{
+    background-color: #0b3d78;
+    color: white;
+    border:none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal-header>button{
+    border: none;
+    background-color: #0b3d78;
+    color: white;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
