@@ -39,3 +39,10 @@
   cursor: pointer;
   transition: 0.2s ease;
 }
+
+.subject-table{
+  margin-top: 10px;
+  border-radius: 12px !important;
+  overflow: hidden;
+  outline: none;
+}

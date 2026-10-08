@@ -36,7 +36,6 @@ const Teachers = () => {
 
 
 
-
         <Table className="subject-table" cellPadding="0" cellSpacing="0" striped bordered>
           <thead>
             <tr>
@@ -46,7 +45,6 @@ const Teachers = () => {
               <th>Action</th>
             </tr>
           </thead>
-
           <tbody>
             {Teachers.map((item) => (
               <tr key={item._id}>

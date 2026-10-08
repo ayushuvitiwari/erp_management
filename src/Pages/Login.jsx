@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import './CSS/Login.css'
 
 const Login = () => {
   const [user, setUser] = useState([])
@@ -48,21 +49,39 @@ const Login = () => {
 
   return (
     <>
-      <input type="text" placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} /> <br /> <br />
+      <div className="loginPage">
+        <div className="loginBox">
+          <h2>Login</h2>
+          <p>Enter your email to continue</p>
 
-      {
-        step == 2 ?
-          <div>
-            <input type="text" placeholder='Enter OTP' onChange={(e) => setOtp(e.target.value)} /> <br /> <br />
-          </div> : ""
+          <input
+            type="text"
+            placeholder="Enter Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-      }
+          <br />
+          <br />
 
-      {
-        step == 2 ? <button onClick={verifyOtp}>Verify OTP</button> : <button onClick={sendOtp}>Send OTP</button>
-      }
+          {step == 2 ? (
+            <div>
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                onChange={(e) => setOtp(e.target.value)}
+              />
+              <br />
+              <br />
+            </div>
+          ) : ""}
 
-
+          {step == 2 ? (
+            <button onClick={verifyOtp}>Verify OTP</button>
+          ) : (
+            <button onClick={sendOtp}>Send OTP</button>
+          )}
+        </div>
+      </div>
 
 
 

@@ -1,0 +1,112 @@
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc, #e0e7ff);
+  font-family: Arial, sans-serif;
+}
+
+.loginBox {
+  width: 100%;
+  max-width: 420px;
+  padding: 45px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(31, 41, 55, 0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.loginBox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #2563eb);
+}
+
+.loginBox h2 {
+  margin: 5px 0 10px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+.loginBox p {
+  margin: 0 0 30px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.loginBox input {
+  width: 100%;
+  height: 52px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 11px;
+  outline: none;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+.loginBox input:hover {
+  border-color: #a5b4fc;
+}
+
+.loginBox input:focus {
+  background: #ffffff;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.loginBox input::placeholder {
+  color: #9ca3af;
+}
+
+.loginBox button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+  transition: all 0.25s ease;
+}
+
+.loginBox button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.35);
+}
+
+.loginBox button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .loginPage {
+    padding: 15px;
+  }
+
+  .loginBox {
+    padding: 38px 22px;
+    border-radius: 18px;
+  }
+
+  .loginBox h2 {
+    font-size: 28px;
+  }
+}

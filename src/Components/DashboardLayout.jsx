@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './CSS/dashboardLayout.css'
+import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
 import { MdDashboard } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
@@ -13,22 +14,20 @@ import { MdAppRegistration } from "react-icons/md";
 import { RiAdminFill } from "react-icons/ri";
 import { VscAccount } from "react-icons/vsc";
 import { IoCloseSharp } from "react-icons/io5";
-const DashboardLayout = ({children}) => {
+import Swal from "sweetalert2";
+const DashboardLayout = ({ children }) => {
   const [role, setRole] = useState('')
   const [isClose, setIsClose] = useState(false)
+  const navigate = useNavigate();
   const handleSidebar = () => {
     setIsClose(!isClose);
   }
-  const handlelogout =()=>{
-    localStorage.clear('tocken');
-    localStorage.clear('role');
-    navigation('/login')
-  }
+  const handleLogout = () => { Swal.fire({ title: "Are you sure?", text: "You want to logout?", icon: "warning", showCancelButton: true, confirmButtonText: "Yes, Logout", cancelButtonText: "Cancel" }).then((result) => { if (result.isConfirmed) { localStorage.removeItem("token"); localStorage.removeItem("role"); navigate("/login"); } }); };
 
   useEffect(() => {
     setRole(localStorage.getItem('role') ?? "Guest")
-  },[])
-  
+  }, [])
+
 
   const tabs = {
     supperAdmin: [
@@ -76,7 +75,7 @@ const DashboardLayout = ({children}) => {
                     `navlinks ${isActive ? "sidebar-active" : ""}`
                   }
                 >
-                  <Icon/>
+                  <Icon />
 
                   {!isClose && (
                     <span>{tab.title}</span>
@@ -88,12 +87,12 @@ const DashboardLayout = ({children}) => {
 
           </div>
           <div className="logout-outer">
-            <button className='sidebar-logout' onClick={handlelogout}>Logout</button>
+            <button className='sidebar-logout' onClick={handleLogout}>Logout</button>
           </div>
         </div>
         <div className="dashboardLayout-main">
           <div className="dashboardLayout-header">
-            <button onClick={handleSidebar}>{isClose ? <IoReorderThreeSharp /> : <IoCloseSharp /> }</button>
+            <button onClick={handleSidebar}>{isClose ? <IoReorderThreeSharp /> : <IoCloseSharp />}</button>
             <h1>Welcome Back! {role} </h1>
           </div>
           <div className="dashboardLayout-content">
