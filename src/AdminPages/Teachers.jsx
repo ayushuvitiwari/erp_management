@@ -30,7 +30,7 @@ const Teachers = () => {
       <DashboardLayout>
 
         <div className="all-classes-header">
-          <h1>All Teachers</h1>
+          <h2>All Teachers</h2>
           <button className='all-create-class' onClick={() => setModalShow(true)}>Add Teachers</button>
         </div>
 
@@ -71,7 +71,7 @@ const Teachers = () => {
 
         <Modal show={ModalShow} centered>
           <Modal.Header className='modal-header'>
-            <h1>Add Teacher</h1>
+            <h2>Add Teacher</h2>
             <button onClick={() => setModalShow(false)}><IoCloseSharp size={30} /></button>
           </Modal.Header>
           <Modal.Body>

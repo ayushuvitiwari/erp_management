@@ -32,7 +32,7 @@ const Subjects = () => {
       <DashboardLayout>
 
         <div className="all-subject-header">
-          <h1>All Subject</h1>
+          <h2>All Subject</h2>
           <button className="all-create-subject" onClick={() => setModalShow(true)}>
             Create Subject
           </button>

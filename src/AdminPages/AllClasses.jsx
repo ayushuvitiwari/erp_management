@@ -11,9 +11,11 @@ import { FaEye } from "react-icons/fa";
 
 const AllClasses = () => {
 
-    const [modalShow, setModalShow] = useState(false)
+    const [modalShow, setModalShow] = useState(false);
     const [teachers, setteachers] = useState([]);
     const [subjects, setsubjects] = useState([]);
+    const [classModal, setclassModal] = useState(false);
+    const [selectClass, setselectClass] = useState([]);
 
     const [row, setrow] = useState([
         { teacher: "", subject: "" },
@@ -44,8 +46,16 @@ const AllClasses = () => {
             setclasses(res.data);
         } catch (error) {
             console.log(error);
-
         }
+    };
+
+    const showClass = (data) => {
+        setclassModal(true);
+        setselectClass(data);
+    }
+
+    const saveclass = () => {
+
     }
 
     useEffect(() => {
@@ -58,18 +68,18 @@ const AllClasses = () => {
 
 
                 <div className="all-classes-header">
-                    <h1>All Classes</h1>
+                    <h2>All Classes</h2>
                     <button className='all-create-class' onClick={() => setModalShow(true)}>Create Class</button>
                 </div>
 
 
-                <div className="subject-table" cellPadding="0" cellSpacing="0" striped bordered>
+                <div className="subject-table" cellPadding="0" cellSpacing="0">
                     <Table striped bordered cellPadding="0" cellSpacing="0">
                         <thead>
                             <tr>
                                 <th>Sr No</th>
                                 <th>Class</th>
-                                <th>Action</th>
+                                <th className='action-btn'>Action</th>
                             </tr>
                         </thead>
 
@@ -82,7 +92,7 @@ const AllClasses = () => {
                                         <td>
                                             <button className="subject-edit-btn"><FaEdit /></button>
                                             <button className="subject-edit-btn">< MdDelete /></button>
-                                            <button className="subject-edit-btn"><FaEye /></button>
+                                            <button className="subject-edit-btn" onClick={() => showClass(c)} ><FaEye /></button>
                                         </td>
                                     </tr>
                                 ))
@@ -95,14 +105,32 @@ const AllClasses = () => {
 
 
 
+                {/* show class modal */}
+
+                <Modal show={classModal} centered>
+                    <Modal.Header className='modal-header'>
+                        <h3>{selectClass?.Class} <span className='class-modal-span'> - Details</span></h3>
+                        <button onClick={() => setclassModal(false)}><IoCloseSharp size={30} /></button>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {
+                            selectClass?.Subject?.map((item, index) => (
+                                <div className='class-details' key={index}>
+                                    <p>Subject : {item.Subject}</p>
+                                    <p>Teacher : {item.Teacher}</p>
+                                </div>
+                            ))
+                        }
+
+                    </Modal.Body>
+                </Modal>
 
 
 
-
-
+                {/* Create class modal */}
                 <Modal show={modalShow} centered>
                     <Modal.Header className='modal-header'>
-                        <h1>Create class</h1>
+                        <h2>Create class</h2>
                         <button onClick={() => setModalShow(false)}><IoCloseSharp size={30} /></button>
                     </Modal.Header>
                     <Modal.Body>
@@ -123,7 +151,7 @@ const AllClasses = () => {
                                     <select>
                                         <option value="">Select Subject</option>
                                         {
-                                            teachers.map((s) => (
+                                            subjects.map((s) => (
                                                 <option value={s.id}>{s.name}</option>
                                             ))
                                         }
@@ -132,13 +160,10 @@ const AllClasses = () => {
                             ))
                         }
                         <button onClick={addmore}> Add</button>
-                        {/* <button onClick={saveclass}>Save Class</button> */}
+                        <button className='save-class-btn' onClick={saveclass}>Save Class</button>
 
                     </Modal.Body>
                 </Modal>
-
-
-
 
 
             </DashboardLayout>
