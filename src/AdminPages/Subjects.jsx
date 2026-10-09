@@ -43,7 +43,7 @@ const Subjects = () => {
             <tr>
               <th>Sr No</th>
               <th>Subject Name</th>
-              <th>Action</th>
+              <th className='text-center'>Action</th>
             </tr>
           </thead>
 
@@ -52,7 +52,7 @@ const Subjects = () => {
               <tr key={item._id}>
                 <td>{item._id}</td>
                 <td>{item.name}</td>
-                <td>
+                <td className='text-center'>
                   <button className="subject-edit-btn"><FaEdit /></button>
                   <button className="subject-edit-btn">< MdDelete/></button>
                 </td>

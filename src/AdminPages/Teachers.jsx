@@ -42,7 +42,7 @@ const Teachers = () => {
               <th>Sr No</th>
               <th>Subject Name</th>
               <th>Mobile</th>
-              <th>Action</th>
+              <th className='text-center'>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +51,7 @@ const Teachers = () => {
                 <td>{item._id}</td>
                 <td>{item.name}</td>
                 <td>{item.mobile}</td>
-                <td>
+                <td className='text-center'>
                   <button className="subject-edit-btn"><FaEdit /></button>
                   <button className="subject-edit-btn">< MdDelete /></button>
                 </td>

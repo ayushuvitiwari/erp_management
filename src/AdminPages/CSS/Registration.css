@@ -1,0 +1,382 @@
+.registration-page {
+  min-height: 100vh;
+  padding: 28px;
+  background: #f5f7fb;
+  color: #1f2937;
+  font-family: Arial, sans-serif;
+}
+
+.registration-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.registration-tag {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.registration-top h2 {
+  margin: 8px 0;
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.registration-top p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.registration-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  background: #fff;
+  color: #334155;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.registration-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 22px;
+  margin-bottom: 24px;
+  border: 1px solid #e5eaf1;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-left: 16px;
+  border-left: 3px solid #cbd5e1;
+}
+
+.info-item span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.info-item strong {
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.registration-section {
+  padding: 26px;
+  border: 1px solid #e5eaf1;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.section-number {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.section-heading h3 {
+  margin: 0 0 6px;
+  color: #1e293b;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.form-field > label {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-field input:not([type="radio"]),
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #dce2ea;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #1f2937;
+  font-family: inherit;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field input:not([type="radio"]),
+.form-field select {
+  height: 45px;
+  padding: 0 13px;
+}
+
+.form-field input[type="file"] {
+  padding: 10px;
+  background: #f8fafc;
+}
+
+.form-field textarea {
+  min-height: 95px;
+  padding: 13px;
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #a0aab8;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #64748b;
+  box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
+}
+
+.form-field input[readonly] {
+  background: #f8fafc;
+  color: #64748b;
+  cursor: default;
+}
+
+.form-field select {
+  cursor: pointer;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.gender-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 0 8px;
+  border: 1px solid #dce2ea;
+  border-radius: 8px;
+  background: #fff;
+  color: #475569;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.gender-option:has(input:checked) {
+  border-color: #64748b;
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.gender-option input {
+  margin: 0;
+  accent-color: #475569;
+}
+
+.registration-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 0 30px;
+}
+
+.registration-actions button {
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid #dce2ea;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.reset-btn {
+  background: #fff;
+  color: #475569;
+}
+
+.reset-btn:hover {
+  background: #f1f5f9;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-color: #334155 !important;
+  background: #334155;
+  color: #fff;
+}
+
+.submit-btn:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.submit-btn span {
+  font-size: 18px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .registration-page {
+    padding: 20px;
+  }
+
+  .registration-section {
+    padding: 20px;
+  }
+
+  .registration-grid {
+    gap: 18px;
+  }
+
+  .registration-info {
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .info-item {
+    padding-left: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .registration-page {
+    padding: 14px;
+  }
+
+  .registration-top h2 {
+    font-size: 23px;
+  }
+
+  .registration-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 27px;
+  }
+
+  .registration-info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .registration-section {
+    padding: 16px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .section-number {
+    width: 36px;
+    height: 36px;
+  }
+
+  .section-heading h3 {
+    font-size: 16px;
+  }
+
+  .registration-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .gender-options {
+    gap: 6px;
+  }
+
+  .gender-option {
+    gap: 5px;
+    padding: 0 5px;
+    font-size: 11px;
+  }
+
+  .registration-actions {
+    flex-direction: column-reverse;
+  }
+
+  .registration-actions button {
+    width: 100%;
+  }
+}

@@ -16,6 +16,7 @@ const AllClasses = () => {
     const [subjects, setsubjects] = useState([]);
     const [classModal, setclassModal] = useState(false);
     const [selectClass, setselectClass] = useState([]);
+    const [classes, setclasses] = useState([]);
 
     const [row, setrow] = useState([
         { teacher: "", subject: "" },
@@ -38,7 +39,7 @@ const AllClasses = () => {
         setrow([...row, { teacher: "", subject: "" }])
     }
 
-    const [classes, setclasses] = useState([])
+
 
     const fetchClasses = async () => {
         try {
@@ -79,7 +80,7 @@ const AllClasses = () => {
                             <tr>
                                 <th>Sr No</th>
                                 <th>Class</th>
-                                <th className='action-btn'>Action</th>
+                                <th className='action-btn text-center'>Action</th>
                             </tr>
                         </thead>
 
@@ -89,7 +90,7 @@ const AllClasses = () => {
                                     <tr>
                                         <td>{c._id}</td>
                                         <td>{c.Class}</td>
-                                        <td>
+                                        <td className='text-center'>
                                             <button className="subject-edit-btn"><FaEdit /></button>
                                             <button className="subject-edit-btn">< MdDelete /></button>
                                             <button className="subject-edit-btn" onClick={() => showClass(c)} ><FaEye /></button>
@@ -109,18 +110,52 @@ const AllClasses = () => {
 
                 <Modal show={classModal} centered>
                     <Modal.Header className='modal-header'>
-                        <h3>{selectClass?.Class} <span className='class-modal-span'> - Details</span></h3>
+                        <h3>{selectClass?.Class} <span style={{color: "gray", fontSize: "22px"}}> - Details</span></h3>
                         <button onClick={() => setclassModal(false)}><IoCloseSharp size={30} /></button>
                     </Modal.Header>
                     <Modal.Body>
-                        {
-                            selectClass?.Subject?.map((item, index) => (
-                                <div className='class-details' key={index}>
-                                    <p>Subject : {item.Subject}</p>
-                                    <p>Teacher : {item.Teacher}</p>
-                                </div>
-                            ))
-                        }
+                        <Table striped bordered hover responsive className='text-center'>
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Teacher</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    selectClass?.Subject?.map((item, index) => (
+                                        <tr key={index}>
+                                            <td>{item.Subject}</td>
+                                            <td>{item.Teacher}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </Table>
+
+                        <h2>Fee</h2>
+                        <Table bordered striped>
+                            <thead >
+                                <tr>
+                                    <th>Fee Type</th>
+                                    <th>Fee Amount</th>
+                                    <th>Payment Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                  selectClass?.fee?.map((f)=>(
+                                    <tr>
+                                        <td>{f.FeeType}</td>
+                                        <td>{f.Amount}</td>
+                                        <td>{f.PaymentType}</td>
+                                    </tr>
+                                  ))  
+                                }
+                            </tbody>
+                        </Table>
+
+
 
                     </Modal.Body>
                 </Modal>
@@ -162,6 +197,19 @@ const AllClasses = () => {
                         <button onClick={addmore}> Add</button>
                         <button className='save-class-btn' onClick={saveclass}>Save Class</button>
 
+                        <br /> <br />
+                        <h2>Fee</h2>
+                        <select name="" id="">
+                            <option id="">Select fee Type</option>
+                            <option name="" id="">Tution fee</option>
+                            <option name="" id="">Exam fee</option>
+                            <option name="" id="">Admisson fee</option>
+                            <option name="" id="">Other</option>
+                        </select>
+                        <input type="text" name='fee' placeholder='Enter fee in rupees'/>
+                        <input type="radio" value="monthly" /> Monthly
+                        <input type="radio" value="6-month" />6 Month
+                        <input type="radio" value="one-time" /> One Time
                     </Modal.Body>
                 </Modal>
 

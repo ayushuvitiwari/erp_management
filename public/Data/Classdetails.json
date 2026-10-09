@@ -1,342 +1,182 @@
 [
-    {
-        "_id": 1,
-        "Class": "LKG",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "EVS",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Drawing",
-                "Teacher": "Mrs. Priya"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "GK",
-                "Teacher": "Mrs. Sneha"
-            }
-        ]
-    },
-    {
-        "_id": 2,
-        "Class": "UKG",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "EVS",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Drawing",
-                "Teacher": "Mrs. Priya"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "GK",
-                "Teacher": "Mrs. Sneha"
-            }
-        ]
-    },
-    {
-        "_id": 3,
-        "Class": "Class 1",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "EVS",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Drawing",
-                "Teacher": "Mrs. Priya"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "GK",
-                "Teacher": "Mrs. Sneha"
-            }
-        ]
-    },
-    {
-        "_id": 4,
-        "Class": "Class 2",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "EVS",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Drawing",
-                "Teacher": "Mrs. Priya"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "GK",
-                "Teacher": "Mrs. Sneha"
-            }
-        ]
-    },
-    {
-        "_id": 5,
-        "Class": "Class 3",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "Science",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Social Science",
-                "Teacher": "Mr. Vikash"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "GK",
-                "Teacher": "Mrs. Sneha"
-            }
-        ]
-    },
-    {
-        "_id": 6,
-        "Class": "Class 4",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "Science",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Social Science",
-                "Teacher": "Mr. Vikash"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "GK",
-                "Teacher": "Mrs. Sneha"
-            }
-        ]
-    },
-    {
-        "_id": 7,
-        "Class": "Class 5",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "Science",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Social Science",
-                "Teacher": "Mr. Vikash"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "GK",
-                "Teacher": "Mrs. Sneha"
-            }
-        ]
-    },
-    {
-        "_id": 8,
-        "Class": "Class 6",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "Science",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Social Science",
-                "Teacher": "Mr. Vikash"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "Sanskrit",
-                "Teacher": "Mrs. Kavita"
-            }
-        ]
-    },
-    {
-        "_id": 9,
-        "Class": "Class 7",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "Science",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Social Science",
-                "Teacher": "Mr. Vikash"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "Sanskrit",
-                "Teacher": "Mrs. Kavita"
-            }
-        ]
-    },
-    {
-        "_id": 10,
-        "Class": "Class 8",
-        "Subject": [
-            {
-                "Subject": "English",
-                "Teacher": "Mrs. Anjali"
-            },
-            {
-                "Subject": "Hindi",
-                "Teacher": "Mrs. Pooja"
-            },
-            {
-                "Subject": "Mathematics",
-                "Teacher": "Mr. Rahul"
-            },
-            {
-                "Subject": "Science",
-                "Teacher": "Mrs. Neha"
-            },
-            {
-                "Subject": "Social Science",
-                "Teacher": "Mr. Vikash"
-            },
-            {
-                "Subject": "Computer",
-                "Teacher": "Mr. Amit"
-            },
-            {
-                "Subject": "Sanskrit",
-                "Teacher": "Mrs. Kavita"
-            }
-        ]
-    }
+  {
+    "_id": 1,
+    "Class": "LKG",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "EVS", "Teacher": "Mrs. Neha" },
+      { "Subject": "Drawing", "Teacher": "Mrs. Priya" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "GK", "Teacher": "Mrs. Sneha" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1000, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 600, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 200, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 2,
+    "Class": "UKG",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "EVS", "Teacher": "Mrs. Neha" },
+      { "Subject": "Drawing", "Teacher": "Mrs. Priya" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "GK", "Teacher": "Mrs. Sneha" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1100, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 700, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 250, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 3,
+    "Class": "Class 1",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "EVS", "Teacher": "Mrs. Neha" },
+      { "Subject": "Drawing", "Teacher": "Mrs. Priya" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "GK", "Teacher": "Mrs. Sneha" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1200, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 800, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 300, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 4,
+    "Class": "Class 2",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "EVS", "Teacher": "Mrs. Neha" },
+      { "Subject": "Drawing", "Teacher": "Mrs. Priya" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "GK", "Teacher": "Mrs. Sneha" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1300, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 900, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 350, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 5,
+    "Class": "Class 3",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "Science", "Teacher": "Mrs. Neha" },
+      { "Subject": "Social Science", "Teacher": "Mr. Vikash" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "GK", "Teacher": "Mrs. Sneha" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1400, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 1000, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 400, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 6,
+    "Class": "Class 4",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "Science", "Teacher": "Mrs. Neha" },
+      { "Subject": "Social Science", "Teacher": "Mr. Vikash" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "GK", "Teacher": "Mrs. Sneha" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1500, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 1100, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 450, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 7,
+    "Class": "Class 5",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "Science", "Teacher": "Mrs. Neha" },
+      { "Subject": "Social Science", "Teacher": "Mr. Vikash" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "GK", "Teacher": "Mrs. Sneha" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1600, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 1200, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 500, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 8,
+    "Class": "Class 6",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "Science", "Teacher": "Mrs. Neha" },
+      { "Subject": "Social Science", "Teacher": "Mr. Vikash" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "Sanskrit", "Teacher": "Mrs. Kavita" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1700, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 1300, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 550, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 9,
+    "Class": "Class 7",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "Science", "Teacher": "Mrs. Neha" },
+      { "Subject": "Social Science", "Teacher": "Mr. Vikash" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "Sanskrit", "Teacher": "Mrs. Kavita" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1800, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 1400, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 600, "PaymentType": "One Time" }
+    ]
+  },
+  {
+    "_id": 10,
+    "Class": "Class 8",
+    "Subject": [
+      { "Subject": "English", "Teacher": "Mrs. Anjali" },
+      { "Subject": "Hindi", "Teacher": "Mrs. Pooja" },
+      { "Subject": "Mathematics", "Teacher": "Mr. Rahul" },
+      { "Subject": "Science", "Teacher": "Mrs. Neha" },
+      { "Subject": "Social Science", "Teacher": "Mr. Vikash" },
+      { "Subject": "Computer", "Teacher": "Mr. Amit" },
+      { "Subject": "Sanskrit", "Teacher": "Mrs. Kavita" }
+    ],
+    "fee": [
+      { "FeeType": "Admission Fee", "Amount": 1900, "PaymentType": "One Time" },
+      { "FeeType": "Tuition Fee", "Amount": 1500, "PaymentType": "Monthly" },
+      { "FeeType": "Exam Fee", "Amount": 650, "PaymentType": "One Time" }
+    ]
+  }
 ]
