@@ -16,7 +16,6 @@ const Subjects = () => {
   const fetchSubject = async () => {
     try {
       const res = await axios.get('/Data/Subject.json')
-      console.log(res)
       setSubject(res.data)
     } catch (error) {
       console.log(error)
