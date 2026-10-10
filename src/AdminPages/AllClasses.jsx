@@ -110,7 +110,7 @@ const AllClasses = () => {
 
                 <Modal show={classModal} centered>
                     <Modal.Header className='modal-header'>
-                        <h3>{selectClass?.Class} <span style={{color: "gray", fontSize: "22px"}}> - Details</span></h3>
+                        <h3>{selectClass?.Class} <span style={{ color: "gray", fontSize: "22px" }}> - Details</span></h3>
                         <button onClick={() => setclassModal(false)}><IoCloseSharp size={30} /></button>
                     </Modal.Header>
                     <Modal.Body>
@@ -133,24 +133,24 @@ const AllClasses = () => {
                             </tbody>
                         </Table>
 
-                        <h2>Fee</h2>
+                        <h3>Fee<span style={{ color: "gray", fontSize: "22px" }}> - Details</span></h3>
                         <Table bordered striped>
-                            <thead >
+                            <thead className='text-center'>
                                 <tr>
                                     <th>Fee Type</th>
                                     <th>Fee Amount</th>
                                     <th>Payment Type</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className='text-center'>
                                 {
-                                  selectClass?.fee?.map((f)=>(
-                                    <tr>
-                                        <td>{f.FeeType}</td>
-                                        <td>{f.Amount}</td>
-                                        <td>{f.PaymentType}</td>
-                                    </tr>
-                                  ))  
+                                    selectClass?.fee?.map((f) => (
+                                        <tr>
+                                            <td>{f.FeeType}</td>
+                                            <td>{f.Amount}</td>
+                                            <td>{f.PaymentType}</td>
+                                        </tr>
+                                    ))
                                 }
                             </tbody>
                         </Table>
@@ -206,12 +206,13 @@ const AllClasses = () => {
                             <option name="" id="">Admisson fee</option>
                             <option name="" id="">Other</option>
                         </select>
-                        <input type="text" name='fee' placeholder='Enter fee in rupees'/>
+                        <input type="text" name='fee' placeholder='Enter fee in rupees' />
                         <input type="radio" value="monthly" /> Monthly
                         <input type="radio" value="6-month" />6 Month
                         <input type="radio" value="one-time" /> One Time
                     </Modal.Body>
                 </Modal>
+                
 
 
             </DashboardLayout>

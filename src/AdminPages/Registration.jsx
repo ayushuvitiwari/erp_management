@@ -4,7 +4,16 @@ import './CSS/Registration.css'
 import axios from 'axios'
 
 const Registration = () => {
-  const [classDetails, setclassDetails] = useState([])
+  const [classDetails, setclassDetails] = useState([]);
+  const [selectedClass, setselectedClass] = useState('');
+
+  const selectedFee = classDetails.find((t) =>
+    t.Class === selectedClass
+  );
+
+  const totalFee = selectedFee?.fee?.reduce((acc, f) =>
+    acc + Number(f.Amount), 0);
+
 
   const fetchclassDeatils = async () => {
     try {
@@ -28,7 +37,6 @@ const Registration = () => {
               <h2>Add New Student</h2>
               <p>Fill in the details below to register a new student.</p>
             </div>
-            <div className="registration-icon">+</div>
           </div> <div className="registration-info">
             <div className="info-item">
               <span>Registration Date</span>
@@ -142,22 +150,30 @@ const Registration = () => {
                   <p>Select the class and academic session for admission.</p>
                 </div>
               </div>
+              <div className="form-field">
+                <label htmlFor="class">Admission Class *</label>
+                <select id="class" name="class" onChange={(e) => setselectedClass(e.target.value)} value={selectedClass} required>
+                  <option value="">Select Class</option>
+                  {classDetails.map((c) => (
+                    <option key={c._id} value={c.Class}>{c.Class}</option>
+                  ))}
+                </select>
+              </div>
+
+
               <div className="registration-grid">
                 <div className="form-field">
-                  <label htmlFor="admissionClass">Admission Class *</label>
-                  <select id="admissionClass" name="class" defaultValue="" required>
-                    <option value="" disabled>Select class</option>
-                    <option value="Nursery">Nursery</option>
-                    <option value="LKG">LKG</option>
-                    <option value="UKG">UKG</option>
-                    {
-                      Array.from({ length: 12 }, (_, i) => (
-                        <option key={i + 1}
-                          value={`Class ${i + 1}`}>
-                          Class {i + 1}
-                        </option>
-                      ))}
-                  </select>
+                   <div className="fee-information">
+                <h4>Fee Information</h4>
+                {selectedFee?.fee?.map((f) => (
+                  <div key={f._id}>
+                    <label>{f.FeeType}</label>
+                    <span>₹{f.Amount}</span>
+                    <span>{f.PaymentType}</span>
+                  </div>
+                ))}
+                <h4>Total Fee: ₹{totalFee || 0}</h4>
+              </div>
                 </div>
                 <div className="form-field">
                   <label htmlFor="session">Academic Session</label>
@@ -171,6 +187,8 @@ const Registration = () => {
             </div>
           </form>
         </div>
+
+
 
       </DashboardLayout>
     </>
