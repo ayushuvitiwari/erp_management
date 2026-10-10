@@ -9,6 +9,7 @@ import Registration from './AdminPages/Registration'
 import Subjects from './AdminPages/Subjects'
 import Teachers from './AdminPages/Teachers'
 import AllClasses from './AdminPages/AllClasses'
+import Students from './AdminPages/Students'
 const App = () => {
   return (
     <>
@@ -26,6 +27,7 @@ const App = () => {
           <Route path='/subjects' element={<Subjects />} />
           <Route path='/teachers' element={<Teachers />} />
           <Route path='/class' element={<AllClasses />} />
+          <Route path='/students' element={<Students/>} />
           
         </Routes>
       </Router>

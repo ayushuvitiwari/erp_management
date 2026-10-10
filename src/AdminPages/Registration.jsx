@@ -25,6 +25,10 @@ const Registration = () => {
     }
   }
 
+  const genretedRegistration =()=>{
+    
+  }
+
   useEffect(() => {
     fetchclassDeatils();
   }, [])
