@@ -1,227 +1,370 @@
-import React, { useEffect, useState } from 'react';
-import DashboardLayout from '../Components/DashboardLayout';
-import axios from 'axios';
-import { Table } from 'react-bootstrap';
-import './CSS/Fee.css';
+import React, { useEffect, useState } from 'react'
+import DashboardLayout from '../Components/DashboardLayout'
+import axios from 'axios'
+import './CSS/Fee.css'
+import { Table } from 'react-bootstrap'
 
 const Fee = () => {
-  const [students, setStudents] = useState([]);
-  const [search, setSearch] = useState('');
-  const [searchedStudent, setSearchedStudent] = useState(null);
-  const [allFee, setAllFee] = useState([]);
-  const [searchedFee, setSearchedFee] = useState([]);
-  const [message, setMessage] = useState('');
+  const [students, setStudents] = useState([])
+  const [search, setSearch] = useState('')
+  const [searchedStudent, setSearchedStudent] = useState(null)
+  const [dueFee, setDueFee] = useState('')
+  const [remark, setRemark] = useState('')
+  const [paidAmount, setPaidAmount] = useState('')
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+  const [allfee,setAllFee] = useState([])
+  const [searchedfee,setSearchedFee] = useState(null)
+  const [duepay,setduePay]=useState()
 
-  useEffect(() => {
-    const fetchData = async () => {
+
+  const fetchStudents = async () => {
+    try {
+      const res = await axios.get('/Data/students.json')
+      setStudents(res.data)
+    } catch (error) {
+      console.error('Error fetching students:', error)
+      setError('Unable to load student data.')
+    }
+  }
+
+
+  const fetechFee = async()=>{
       try {
-        const [studentRes, feeRes] = await Promise.all([
-          axios.get('/Data/Student.json'),
-          axios.get('/Data/Fee.json')
-        ]);
-
-        setStudents(studentRes.data);
-        setAllFee(feeRes.data);
+        const res = await axios.get('/Data/Fee.json')
+        setAllFee(res.data)
+        
       } catch (error) {
         console.log(error);
-        setMessage('Unable to load student or fee data.');
+        
       }
-    };
+  }
 
-    fetchData();
-  }, []);
+  useEffect(() => {
+    fetchStudents()
+    fetechFee()
+  }, [])
 
   const handleSearch = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    setError('')
+    setSuccess('')
 
-    const value = search.trim().toLowerCase();
+    const query = search.trim().toLowerCase()
 
-    if (!value) {
-      setSearchedStudent(null);
-      setSearchedFee([]);
-      setMessage('Please enter Phone Number, Email or Registration Number.');
-      return;
+    if (!query) {
+      setSearchedStudent(null)
+      setError('Please enter Phone, Email or Registration Number.')
+      return
     }
 
-    const student = students.find((s) =>
-      [s.RegNo, s.PhoneNumber, s.Email].some(
-        (item) => String(item ?? '').toLowerCase() === value
+    const student = students.find((student) =>
+      [student.PhoneNumber, student.Email, student.RegNo].some(
+        (value) => String(value ?? '').toLowerCase() === query
       )
-    );
+    )
 
-    if (!student) {
-      setSearchedStudent(null);
-      setSearchedFee([]);
-      setMessage('Student not found. Please check the details.');
-      return;
+    const fee = allfee.filter((f)=>{
+      return f.RegNo === student?.RegNo
+    })
+    setSearchedFee(fee);
+        
+
+    if (student) {
+      setSearchedStudent(student)
+     
+    } else {
+      setSearchedStudent(null)
+      setError('Student not found. Please check the entered details.')
     }
+  }
 
-    setSearchedStudent(student);
-    setSearchedFee(
-      allFee.filter(
-        (f) => String(f.RegNo) === String(student.RegNo)
-      )
-    );
-    setMessage('');
-  };
 
-  const totalFee = searchedFee.reduce(
-    (sum, f) => sum + Number(f.Amount || 0),
-    0
-  );
 
-  const paidFee = searchedFee.reduce(
-    (sum, f) => sum + Number(f.PaidAmount ?? f.paidAmount ?? 0),
-    0
-  );
+  const profileName = searchedStudent?.Name || 'Student'
+  const initials = profileName
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase()
 
-  const dueFee = totalFee - paidFee;
+    const handleSetPay=(f)=>{
+      setduePay(f)
+    }
 
   return (
     <DashboardLayout>
-      <div className="fee-page">
-        <div className="fee-page-heading">
+      <div className="collect-fee-page">
+
+        <div className="collect-fee-heading">
           <div>
-            <h2>Fee Management</h2>
-            <p>Search students and manage their fee details.</p>
+            <span className="collect-fee-eyebrow">STUDENT MANAGEMENT</span>
+            <h1>Fee Collection</h1>
+            <p>Search student details and manage fee collection.</p>
           </div>
+
+          <div className="collect-fee-heading-icon">₹</div>
         </div>
 
-        <form className="fee-search-box" onSubmit={handleSearch}>
-          <div className="fee-search-input">
-            <span>⌕</span>
+        <form className="collect-fee-search-card" onSubmit={handleSearch}>
+          <div className="collect-fee-search-icon">⌕</div>
+
+          <div className="collect-fee-search-content">
+            <label htmlFor="collect-fee-search">
+              Search Student
+            </label>
             <input
-              type="search"
-              placeholder="Enter Phone Number, Email or Reg No"
+              id="collect-fee-search"
+              className="collect-fee-search-input"
+              type="text"
+              placeholder="Enter Phone Number, Email or Reg. No."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
-          <button type="submit">Search Student</button>
+          <button className="collect-fee-search-button" type="submit">
+            Search Student
+          </button>
         </form>
 
-        {message && (
-          <div className="fee-message">{message}</div>
+        {error && (
+          <div className="collect-fee-alert collect-fee-alert-error" role="alert">
+            {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="collect-fee-alert collect-fee-alert-success" role="status">
+            {success}
+          </div>
+        )}
+
+        {!searchedStudent && !error && (
+          <div className="collect-fee-empty-state">
+            <div className="collect-fee-empty-icon">⌕</div>
+            <h2>Find a Student</h2>
+            <p>
+              Enter the student's phone number, email or registration number
+              to view their profile and collect fees.
+            </p>
+          </div>
         )}
 
         {searchedStudent && (
-          <>
-            <div className="student-profile-card">
-              <div className="student-avatar">
-                {String(searchedStudent.Name || 'S')
-                  .charAt(0)
-                  .toUpperCase()}
+          <div className="collect-fee-profile">
+
+            <div className="collect-fee-profile-header">
+              <div className="collect-fee-avatar">
+                {initials || 'ST'}
               </div>
 
-              <div className="student-profile-info">
-                <h3>{searchedStudent.Name || '-'}</h3>
-                <p>Registration No: {searchedStudent.RegNo || '-'}</p>
-                <span className="student-class-badge">
-                  {searchedStudent.currentClass || '-'}
+              <div className="collect-fee-profile-title">
+                <span className="collect-fee-profile-label">
+                  STUDENT PROFILE
                 </span>
+                <h2>{searchedStudent.Name || 'N/A'}</h2>
+                <p>
+                  Registration No: {searchedStudent.RegNo || 'N/A'}
+                </p>
               </div>
 
-              <div className="student-profile-status">
-                <span>Student Profile</span>
-                <strong>{searchedStudent.Email || '-'}</strong>
-                <small>{searchedStudent.PhoneNumber || '-'}</small>
+              <span className="collect-fee-status">
+                Profile Found
+                <img src={searchedStudent.Photo || 'N/A'} alt="" />
+              </span>
+            </div>
+
+            <div className="collect-fee-section">
+              <h3 className="collect-fee-section-title">
+                Personal Information
+              </h3>
+
+              <div className="collect-fee-info-grid">
+                <div className="collect-fee-info-item">
+                  <span>Registration Number</span>
+                  <strong>{searchedStudent.RegNo || 'N/A'}</strong>
+                </div>
+
+                <div className="collect-fee-info-item">
+                  <span>Student Name</span>
+                  <strong>{searchedStudent.Name || 'N/A'}</strong>
+                </div>
+
+                <div className="collect-fee-info-item">
+                  <span>Father's Name</span>
+                  <strong>{searchedStudent.FatherName || 'N/A'}</strong>
+                </div>
+
+               
+
+                <div className="collect-fee-info-item">
+                  <span>Phone Number</span>
+                  <strong>{searchedStudent.PhoneNumber || 'N/A'}</strong>
+                </div>
+                <div className="collect-fee-info-item">
+                  <span>Current Class</span>
+                  <strong>
+                    {searchedStudent.currentClass ||
+                      searchedStudent.CurrentClass ||
+                      searchedStudent.Class ||
+                      searchedStudent.LastClass ||
+                      'N/A'}
+                  </strong>
+                </div>
               </div>
             </div>
 
-            <div className="student-details-grid">
-              <div className="student-detail-item">
-                <span>Father's Name</span>
-                <strong>{searchedStudent.FatherName || '-'}</strong>
-              </div>
 
-              <div className="student-detail-item">
-                <span>Registration No.</span>
-                <strong>{searchedStudent.RegNo || '-'}</strong>
-              </div>
 
-              <div className="student-detail-item">
-                <span>Class</span>
-                <strong>{searchedStudent.currentClass || '-'}</strong>
-              </div>
-            </div>
+            <div className='fee-table'>
+              <Table style={{textAlign:"center"}}>
+                <thead>
+                  <tr>
+                    <th>Reg No</th>
+                    <th>Fee Name</th>
+                    <th>Fee Type</th>
+                    <th>Paid Amount</th>
+                    <th>Due Amount</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
 
-            <div className="fee-summary-grid">
-              <div className="fee-summary-card total">
-                <span>Total Fee</span>
-                <h3>₹{totalFee.toLocaleString('en-IN')}</h3>
-              </div>
 
-              <div className="fee-summary-card paid">
-                <span>Paid Fee</span>
-                <h3>₹{paidFee.toLocaleString('en-IN')}</h3>
-              </div>
-
-              <div className="fee-summary-card due">
-                <span>Due Fee</span>
-                <h3>₹{dueFee.toLocaleString('en-IN')}</h3>
-              </div>
-            </div>
-
-            <div className="fee-table-card">
-              <div className="fee-table-heading">
-                <h3>Fee Payment History</h3>
-                <span>{searchedFee.length} Records</span>
-              </div>
-
-              <div className="fee-table-scroll">
-                <Table responsive hover className="fee-data-table">
-                  <thead>
-                    <tr>
-                      <th>Reg No</th>
-                      <th>Fee Name</th>
-                      <th>Payment Type</th>
-                      <th>Paid Amount</th>
-                      <th>Due Amount</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    {searchedFee.length > 0 ? (
-                      searchedFee.map((f, index) => {
-                        const amount = Number(f.Amount || 0);
-                        const paid = Number(
-                          f.PaidAmount ?? f.paidAmount ?? 0
-                        );
-
-                        return (
-                          <tr key={f._id ?? index}>
-                            <td>{f.RegNo}</td>
-                            <td>{f.FeeType || '-'}</td>
-                            <td>
-                              {f.PaymentType || '-'}
-                              {f.FeeMonth ? ` (${f.FeeMonth})` : ''}
-                            </td>
-                            <td className="fee-paid-amount">
-                              ₹{paid.toLocaleString('en-IN')}
-                            </td>
-                            <td className="fee-due-amount">
-                              ₹{(amount - paid).toLocaleString('en-IN')}
-                            </td>
-                          </tr>
-                        );
-                      })
-                    ) : (
-                      <tr>
-                        <td colSpan="5" className="fee-empty">
-                          No fee records found for this student.
-                        </td>
+                <tbody>
+                  {
+                    searchedfee.map((f)=>(
+                      <tr key={f._id}>
+                      <td>{f.RegNo}</td>
+                      <td>{f.FeeType}</td>
+                      <td>{f.PaymentType}({f?.FeeMonth})</td>
+                      <td>{f.paidAmount}</td>
+                      <td>{f.Amount-f.paidAmount}</td>
+                      <td>{(f.Amount-f.paidAmount===0)? "No Dues" : <button onClick={()=>handleSetPay(f)}>Pay</button>}</td>
                       </tr>
-                    )}
-                  </tbody>
-                </Table>
-              </div>
+                    ))
+                  }
+                </tbody>
+              </Table>
+
             </div>
-          </>
+
+            <form
+              className="collect-fee-payment-section"
+              
+            >
+              <h3 className="collect-fee-section-title">
+                Fee Details
+              </h3>
+              <div className="collect-fee-payment-grid">
+
+                <div className="collect-fee-field">
+                  <label htmlFor="collect-fee-due">
+                    Total Fee (₹)
+                  </label>
+                  <input
+                    id="collect-fee-due"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="Enter Total fee"
+                    value={duepay?.Amount}
+                    
+                    required
+                    disabled
+                  />
+                </div>
+
+                <div className="collect-fee-field">
+                  <label htmlFor="collect-fee-paid">
+                  Fee Type
+                  </label>
+                  <input
+                    id="collect-fee-paid"
+                    type="text"
+                    min="0.01"
+                    step="0.01"
+                    placeholder=" Enter Fee Type"
+                    value={duepay?.PaymentType}
+                    required
+                    disabled
+                  />
+                </div>
+                <div className="collect-fee-field">
+                  <label htmlFor="collect-fee-paid">
+                    Paid Amount (₹)
+                  </label>
+                  <input
+                    id="collect-fee-paid"
+                    type="number"
+                    min="0.01"
+                    step="0.01"
+                    placeholder="Enter Paid Amount"
+                    value={duepay?.paidAmount}
+                    required
+                    disabled
+                  />
+                </div>
+                <div className="collect-fee-field">
+                  <label htmlFor="collect-fee-paid">
+                    Due Amount (₹)
+                  </label>
+                  <input
+                    id="collect-fee-paid"
+                    type="number"
+                    min="0.01"
+                    step="0.01"
+                    placeholder="Enter amount to collect"
+                    value={duepay?.Amount - duepay?.paidAmount}
+                    required
+                  />
+                </div>
+
+                <div className="collect-fee-field collect-fee-field-full">
+                  <label htmlFor="collect-fee-remark">
+                    Remark
+                  </label>
+                  <textarea
+                    id="collect-fee-remark"
+                    rows="3"
+                    placeholder="Enter payment remark..."
+                    value={remark}
+                    onChange={(e) => setRemark(e.target.value)}
+                  />
+                </div>
+
+              </div>
+
+              <div className="collect-fee-payment-footer">
+                <div className="collect-fee-due-summary">
+                  <span>Remaining Due</span>
+                  <strong>
+                    ₹
+                    {(
+                      Number(dueFee) || 0
+                    ).toLocaleString('en-IN', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2
+                    })}
+                  </strong>
+                </div>
+
+                <button
+                  className="collect-fee-submit-button"
+                  type="submit"
+                >
+                  Collect Fee
+                </button>
+              </div>
+            </form>
+
+          </div>
         )}
       </div>
     </DashboardLayout>
-  );
-};
+  )
+}
 
-export default Fee;
+export default Fee
